@@ -1,0 +1,16 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Shared objects
+*.so
+
+# Temporary files
+*.swn
+*.swo
+*.swp
+
+# Generated C files
+lib/utils/cython_*.c
+

@@ -22,8 +22,8 @@ FPN:
   MULTILEVEL_ROIS: True
   MULTILEVEL_RPN: True
 RESNETS:
-  VG_PRETRAINED_WEIGHTS: 'models/vg/X-101-64x4d-FPN/model_final.pth'
-  VG_PRD_PRETRAINED_WEIGHTS: 'models/vg/X-101-64x4d-FPN/model_final.pth'
+  VG_PRETRAINED_WEIGHTS: 'detection_models/vg/X-101-64x4d-FPN/model_step119999.pth'
+  VG_PRD_PRETRAINED_WEIGHTS: 'detection_models/vg/X-101-64x4d-FPN/model_step119999.pth'
   STRIDE_1X1: False  # default True for MSRA; False for C2 or Torch models
   TRANS_FUNC: bottleneck_transformation
   NUM_GROUPS: 64

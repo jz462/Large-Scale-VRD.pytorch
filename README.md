@@ -133,19 +133,9 @@ To test a trained model using a VGG16 backbone, run
 python ./tools/test_net_rel.py --dataset vrd --cfg configs/vrd/e2e_relcnn_VGG16_8_epochs_vrd_y_loss_only.yaml --load_ckpt trained_models/e2e_relcnn_VGG16_8_epochs_vrd_y_loss_only/model_step7559.pth --output_dir Outputs/e2e_relcnn_VGG16_8_epochs_vrd_y_loss_only --multi-gpu-testing --do_val
 ```
 
-## (Optional) Training Object Detection Models
-This repo provides code for training object detectors for VG using a ResNeXt-101-64x4d-FPN backbone.
-
-First download weights of a ResNeXt-101-64x4d-FPN trained on ImageNet [here](https://drive.google.com/open?id=1HvznYV86YJp6wfNj7ksFw1okvRz8ZuwN). Unzip it under the `data` directory and you should see a `detectron_model` folder.
-
-To train the object detector, run
-```
-python ./tools/train_net_step.py --dataset vg --cfg configs/e2e_faster_rcnn_X-101-64x4d-FPN_1x_vg.yaml --nw 8 --use_tfboard
-```
-
 ## Training Relationship Detection Models
 
-The section provides the command-line arguments to train our relationship detection models given the pre-trained object detection models described above. **Note:** We do not train object detectors here. We only use trained object detectors (provided in `detection_models/`) to initialize our to-be-trained relationship models.
+The section provides the command-line arguments to train our relationship detection models given the pre-trained object detection models described above.
 
 DO NOT CHANGE anything in the provided config files(configs/xx/xxxx.yaml) even if you want to train with less or more than 8 GPUs. Use the environment variable `CUDA_VISIBLE_DEVICES` to control how many and which GPUs to use.
 
@@ -167,6 +157,18 @@ To train our relationship network using a VGG16 backbone, run
 ```
 python tools/train_net_step_rel.py --dataset vrd --cfg configs/vrd/e2e_relcnn_VGG16_8_epochs_vrd_y_loss_only.yaml --nw 8 --use_tfboard
 ```
+
+## (Optional) Training Object Detection Models
+This repo provides code for training object detectors for Visual Genome using a ResNeXt-101-64x4d-FPN backbone.
+
+First download weights of ResNeXt-101-64x4d-FPN trained on ImageNet [here](https://drive.google.com/open?id=1HvznYV86YJp6wfNj7ksFw1okvRz8ZuwN). Unzip it under the `data` directory and you should see a `detectron_model` folder.
+
+To train the object detector, run
+```
+python ./tools/train_net_step.py --dataset vg --cfg configs/e2e_faster_rcnn_X-101-64x4d-FPN_1x_vg.yaml --nw 8 --use_tfboard
+```
+
+The training results (models and logs) should be in `$ROOT/Outputs/e2e_faster_rcnn_X-101-64x4d-FPN_1x_vg/`.
 
 ## Acknowledgements
 This repository uses code based on the [Neural-Motifs](https://github.com/rowanz/neural-motifs) source code from Rowan Zellers, as well as

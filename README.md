@@ -62,7 +62,7 @@ Download Visual Genome images from the [official page](https://visualgenome.org/
 Download Visual Relation Detection images from the [here](https://drive.google.com/open?id=1M015ElsLR6SAuCD_bhsnn5Pi5T4WQ8p6). Unzip it under the `vrd` folder and you should see `train_images` and `val_images` there. Inside them are images with cleaned file names (the original VRD images use hashes as names and we convert them to numbers).
 
 ## Pre-trained Object Detection Models
-Download pre-trained object detection models [here](https://drive.google.com/open?id=16JVQkkKGfiGt7AUt789pUPX3o84Cl2hL). Unzip it under the root directory.
+Download pre-trained object detection models [here](https://drive.google.com/open?id=16JVQkkKGfiGt7AUt789pUPX3o84Cl2hL). Unzip it under the root directory and you should see a `detection_models` folder there.
 
 ## Our Trained Relationship Detection Models
 Download our trained models [here](https://drive.google.com/open?id=1bYq02eInCqT4D1Brnv7y18_Uosw23LqZ). Unzip it under the root folder and you should see a `trained_models` folder there.

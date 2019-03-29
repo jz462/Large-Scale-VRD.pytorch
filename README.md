@@ -4,7 +4,7 @@ This is a PyTorch implementation for [Large-scale Visual Relationship Understand
 
 This code is for the VG200 and VRD datasets only. For results on VG80K please refer to the [Caffe2 implemntation](https://github.com/facebookresearch/Large-Scale-VRD).
 
-We referred to [Detectron.pytorch](https://github.com/roytseng-tw/Detectron.pytorch) and borrowed their framework for this project, therefore there are a lot overlaps between these two.
+We referred to [Detectron.pytorch](https://github.com/roytseng-tw/Detectron.pytorch) and borrowed their framework for this project, so there are a lot overlaps between these two.
 
 ## Requirements
 * Python 3

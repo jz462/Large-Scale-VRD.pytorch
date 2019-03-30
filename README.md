@@ -161,7 +161,7 @@ python tools/train_net_step_rel.py --dataset vrd --cfg configs/vrd/e2e_relcnn_VG
 ## (Optional) Training Object Detection Models
 This repo provides code for training object detectors for Visual Genome using a ResNeXt-101-64x4d-FPN backbone.
 
-First download weights of ResNeXt-101-64x4d-FPN trained on ImageNet [here](https://drive.google.com/open?id=1HvznYV86YJp6wfNj7ksFw1okvRz8ZuwN). Unzip it under the `data` directory and you should see a `detectron_model` folder.
+First download weights of ResNeXt-101-64x4d-FPN trained on COCO [here](https://drive.google.com/open?id=1HvznYV86YJp6wfNj7ksFw1okvRz8ZuwN). Unzip it under the `data` directory and you should see a `detectron_model` folder.
 
 To train the object detector, run
 ```

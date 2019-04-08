@@ -1,7 +1,7 @@
 # Large-Scale-VRD.pytorch
 
 ![alt text](https://github.com/jz462/Large-Scale-VRD.pytorch/blob/master/Examples.PNG)
-<p align="center">Example results from the OpenImages dataset.</p>
+<p align="center">Example results from the VG80K dataset.</p>
 
 This is a PyTorch implementation for [Large-scale Visual Relationship Understanding, AAAI2019](https://arxiv.org/abs/1804.10660).
 

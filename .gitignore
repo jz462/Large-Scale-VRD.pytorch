@@ -12,5 +12,5 @@ __pycache__/
 *.swp
 
 # Generated C files
-lib/utils/cython_*.c
+lib/utils/*.c
 

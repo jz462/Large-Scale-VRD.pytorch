@@ -126,6 +126,20 @@ class Generalized_RCNN(nn.Module):
         if cfg.RPN.RPN_ON:
             self.RPN = rpn_heads.generic_rpn_outputs(
                 self.Conv_Body.dim_out, self.Conv_Body.spatial_scale)
+            
+        if cfg.FPN.FPN_ON:
+            # Only supports case when RPN and ROI min levels are the same
+            assert cfg.FPN.RPN_MIN_LEVEL == cfg.FPN.ROI_MIN_LEVEL
+            # RPN max level can be >= to ROI max level
+            assert cfg.FPN.RPN_MAX_LEVEL >= cfg.FPN.ROI_MAX_LEVEL
+            # FPN RPN max level might be > FPN ROI max level in which case we
+            # need to discard some leading conv blobs (blobs are ordered from
+            # max/coarsest level to min/finest level)
+            self.num_roi_levels = cfg.FPN.ROI_MAX_LEVEL - cfg.FPN.ROI_MIN_LEVEL + 1
+
+            # Retain only the spatial scales that will be used for RoI heads. `Conv_Body.spatial_scale`
+            # may include extra scales that are used for RPN proposals, but not for RoI heads.
+            self.Conv_Body.spatial_scale = self.Conv_Body.spatial_scale[-self.num_roi_levels:]
 
         # BBOX Branch
         self.Box_Head = get_func(cfg.FAST_RCNN.ROI_BOX_HEAD)(

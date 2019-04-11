@@ -1,7 +1,7 @@
 MODEL:
   TYPE: generalized_rcnn
   SUBTYPE: 3
-  USE_OVLP_FILTER: True
+  USE_OVLP_FILTER: False
   USE_FREQ_BIAS: True
   NO_FC7_RELU: True
   CONV_BODY: FPN.fpn_ResNet101_conv5_body

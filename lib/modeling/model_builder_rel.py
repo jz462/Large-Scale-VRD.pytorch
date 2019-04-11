@@ -234,9 +234,12 @@ class Generalized_RCNN(nn.Module):
         blob_conv_prd = self.Prd_RCNN.Conv_Body(im_data)
 
         rpn_ret = self.RPN(blob_conv, im_info, roidb)
-
-        if not self.training:
-            return_dict['blob_conv'] = blob_conv
+        
+        if cfg.FPN.FPN_ON:
+            # Retain only the blobs that will be used for RoI heads. `blob_conv` may include
+            # extra blobs that are used for RPN proposals, but not for RoI heads.
+            blob_conv = blob_conv[-self.num_roi_levels:]
+            blob_conv_prd = blob_conv_prd[-self.num_roi_levels:]
 
         if cfg.MODEL.SHARE_RES5 and self.training:
             box_feat, res5_feat = self.Box_Head(blob_conv, rpn_ret, use_relu=True)

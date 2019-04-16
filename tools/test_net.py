@@ -91,7 +91,7 @@ if __name__ == '__main__':
         cfg.TEST.DATASETS = ('coco_2017_val',)
         cfg.MODEL.NUM_CLASSES = 81
     elif args.dataset == "vg":
-        cfg.TEST.DATASETS = ('vg_test',)
+        cfg.TEST.DATASETS = ('vg_val',)
         cfg.MODEL.NUM_CLASSES = 151
     elif args.dataset == "vrd":
         cfg.TEST.DATASETS = ('vrd_test',)

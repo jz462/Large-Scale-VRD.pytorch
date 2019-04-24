@@ -7,24 +7,24 @@
 int BilinearSamplerBHWD_updateOutput(THFloatTensor *inputImages, THFloatTensor *grids, THFloatTensor *output)
 {
 
-  int batchsize = inputImages->size[0];
-  int inputImages_height = inputImages->size[1];
-  int inputImages_width = inputImages->size[2];
-  int output_height = output->size[1];
-  int output_width = output->size[2];
-  int inputImages_channels = inputImages->size[3];
+  int batchsize = THFloatTensor_size(inputImages, 0);
+  int inputImages_height = THFloatTensor_size(inputImages, 1);
+  int inputImages_width = THFloatTensor_size(inputImages, 2);
+  int output_height = THFloatTensor_size(output, 1);
+  int output_width = THFloatTensor_size(output, 2);
+  int inputImages_channels = THFloatTensor_size(inputImages, 3);
 
-  int output_strideBatch = output->stride[0];
-  int output_strideHeight = output->stride[1];
-  int output_strideWidth = output->stride[2];
+  int output_strideBatch = THFloatTensor_stride(output, 0);
+  int output_strideHeight = THFloatTensor_stride(output, 1);
+  int output_strideWidth = THFloatTensor_stride(output, 2);
 
-  int inputImages_strideBatch = inputImages->stride[0];
-  int inputImages_strideHeight = inputImages->stride[1];
-  int inputImages_strideWidth = inputImages->stride[2];
+  int inputImages_strideBatch = THFloatTensor_stride(inputImages, 0);
+  int inputImages_strideHeight = THFloatTensor_stride(inputImages, 1);
+  int inputImages_strideWidth = THFloatTensor_stride(inputImages, 2);
 
-  int grids_strideBatch = grids->stride[0];
-  int grids_strideHeight = grids->stride[1];
-  int grids_strideWidth = grids->stride[2];
+  int grids_strideBatch = THFloatTensor_stride(grids, 0);
+  int grids_strideHeight = THFloatTensor_stride(grids, 1);
+  int grids_strideWidth = THFloatTensor_stride(grids, 2);
 
 
   real *inputImages_data, *output_data, *grids_data;

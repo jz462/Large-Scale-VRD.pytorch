@@ -57,6 +57,9 @@ Download it [here](https://drive.google.com/open?id=1VDuba95vIPVhg5DiriPtwuVA6ml
 ### Visual Relation Detection
 Download it [here](https://drive.google.com/open?id=1BUZIVOCEp_-_e9Rs4hVgmbKjLhR2aUT6). Unzip it under the data folder. You should see a `vrd` folder unzipped there. It contains .json annotations that suit the dataloader used in this repo.
 
+### Word2Vec Vocabulary
+Create a folder named `word2vec_model` under `data`. Download the Google word2vec vocabulary from [here](https://code.google.com/archive/p/word2vec/). Unzip it under the `word2vec_model` folder and you should see `GoogleNews-vectors-negative300.bin` there.
+
 ## Images
 
 ### Visual Genome
@@ -101,6 +104,8 @@ The final directories for data and detection models should look like:
 |   |   |-- new_annotations_train.json
 |   |   |-- new_annotations_val.json
 |   |   |-- ...
+|   |-- word2vec_model
+|   |   |-- GoogleNews-vectors-negative300.bin
 |-- trained_models
 |   |-- e2e_relcnn_VGG16_8_epochs_vg_y_loss_only
 |   |   |-- model_step125445.pth

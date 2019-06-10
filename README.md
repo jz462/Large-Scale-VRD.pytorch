@@ -31,7 +31,8 @@ We borrowed the framework from [Detectron.pytorch](https://github.com/roytseng-t
 An easy installation if you already have Python 3 and CUDA 9.0:
 ```
 conda install pytorch=0.4.1
-pip install cython matplotlib numpy scipy pyyaml packaging pycocotools tensorboardX tqdm pillow scikit-image gensim
+pip install cython
+pip install matplotlib numpy scipy pyyaml packaging pycocotools tensorboardX tqdm pillow scikit-image gensim
 conda install opencv
 ```
 

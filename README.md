@@ -18,9 +18,7 @@ We borrowed the framework from [Detectron.pytorch](https://github.com/roytseng-t
 | Graph-RCNN \[2\]               |  Res-101          | 19.4	    | 25.0     |	28.5      |
 | Ours                           |  VGG16            | 20.7     | 27.9     | 32.5      |
 
-\*We use the frequency prior in our model by default.
-
-\*Results of "Graph-RCNN" are directly copied from [their repo](https://github.com/jwyang/graph-rcnn.pytorch).
+**Note:** 1) We use the frequency prior in our model by default. 2) Results of "Graph-RCNN" are directly copied from [their repo](https://github.com/jwyang/graph-rcnn.pytorch).
 
 \[1\] [Zellers, Rowan, et al. "Neural motifs: Scene graph parsing with global context." Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition. 2018.](http://openaccess.thecvf.com/content_cvpr_2018/html/Zellers_Neural_Motifs_Scene_CVPR_2018_paper.html)
 

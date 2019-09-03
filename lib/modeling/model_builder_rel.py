@@ -388,8 +388,13 @@ class Generalized_RCNN(nn.Module):
                 if (k.startswith('rpn_cls_logits') or k.startswith('rpn_bbox_pred'))
             ))
             loss_rpn_cls, loss_rpn_bbox = rpn_heads.generic_rpn_losses(**rpn_kwargs)
-            return_dict['losses']['loss_rpn_cls'] = loss_rpn_cls
-            return_dict['losses']['loss_rpn_bbox'] = loss_rpn_bbox
+            if cfg.FPN.FPN_ON:
+                for i, lvl in enumerate(range(cfg.FPN.RPN_MIN_LEVEL, cfg.FPN.RPN_MAX_LEVEL + 1)):
+                    return_dict['losses']['loss_rpn_cls_fpn%d' % lvl] = loss_rpn_cls[i]
+                    return_dict['losses']['loss_rpn_bbox_fpn%d' % lvl] = loss_rpn_bbox[i]
+            else:
+                return_dict['losses']['loss_rpn_cls'] = loss_rpn_cls
+                return_dict['losses']['loss_rpn_bbox'] = loss_rpn_bbox
             # bbox loss
             loss_cls, loss_bbox, accuracy_cls = fast_rcnn_heads.fast_rcnn_losses(
                 cls_score, bbox_pred, rpn_ret['labels_int32'], rpn_ret['bbox_targets'],
